@@ -13,6 +13,17 @@ Volume X
 Git X
 Github X
 
+14.평가기준
+절대경로는 사용자가 현재 접근한 디렉토리와는 전혀 관계없이 정혹한 경로를 입력하며 접근하는 기본적인 방법이며 사용자가 처음위치한 루트에서 다른 경로로 이동하고 싶은경우에 
+주로 활용하게 됩니다, 
+상대경로는 사용자가 현재 접근한 디렉토리를 기준으로 상위 디렉토리 혹은 하위 디렉토리에 위치한 파일에 간편하여 접근하고 싶을때 활용됩니다. 
+절대경로와는 달리 사용자가 상세한 경로명을 일일이 적지 않아도 되기 때문입니다.
+
+15.평가기준
+파일 권한 표기는 숫자 4,2,1의 조합인 3비트로 표기하며 소유자, 그룹, 기타 순으로 표기합니다.
+숫자 4는 읽기, 숫자 2는 쓰기, 숫자 1은 실행권한을 의미합니다.
+예를 들어 777=rwxrwxrwx는 소유자, 그룹, 기타에 일기,쓰기,실행 권한이 할당된 것으로 이해할 수 있습니다.
+
 오류 해결 내용
 
 4월 1일 
@@ -20,13 +31,11 @@ Github X
 
 Unable to acquire the dpkg frontend lock (/var/lib/dpkg/lock-frontend), are you root? 
 
-같은 메시지가 나오며 설치되지 않아 해결방법을 찾던중 우분투를 재시작 해보라는 글이 있어 따라 해보았습니다. 그랬더니 도커 데스크톱 버전 확인도 되고 앱서랍에 아이콘도 추가되어 정상설치가 된줄 알았지만 터미널과 
-도커컨테이너에서 hello-world 이미지가 작동되지 않았습니다.
+같은 메시지가 나오며 설치되지 않아 해결방법을 찾던중 우분투를 재시작 해보라는 글이 있어 따라 해보았습니다. 
+그랬더니 도커 데스크톱 버전 확인도 되고, 앱목록에 아이콘도 추가되어, 정상설치가 된줄 알았지만, 터미널과 도커컨테이너에서 hello-world 이미지가 작동되지 않았습니다.
 그래서 결국 도커 공식 리포지토리를 우분투에 추가하여 설치하는 방법으로 해결하였습니다.
 
-위의 문제를 해결한 다음 제가 이용하는 우분투 버전과 동일한 이미지를 컨테이너에서 실행하려고 
-
-docker run ubuntu 24.04.4 를 터미널에 입력했더니 
+위의 문제를 해결한 다음 제가 이용하는 우분투 버전과 동일한 이미지를 컨테이너에서 실행하려고 docker run ubuntu 24.04.4 를 터미널에 입력했더니 
 
 docker: Error response from daemon: failed to create task for container: failed to create shim task: OCI runtime create failed: runc create failed: unable to start container process: error during container init: exec: "24.04.4": executable file not found in $PATH
 
