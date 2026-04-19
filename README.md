@@ -32,7 +32,6 @@ Unable to acquire the dpkg frontend lock (/var/lib/dpkg/lock-frontend), are you 
 같은 메시지가 나오며 설치되지 않아 해결방법을 찾던중 우분투를 재시작 해보라는 글이 있어 따라 해보았습니다. 
 그랬더니 도커 데스크톱 버전 확인도 되고, 앱목록에 아이콘도 추가되어, 정상설치가 된줄 알았지만, 터미널과 도커컨테이너에서 hello-world 이미지가 작동되지 않았습니다.
 그래서 결국 도커 공식 리포지토리를 우분투에 추가하여 설치하는 방법으로 해결하였습니다.
-##
 위의 문제를 해결한 다음 제가 이용하는 우분투 버전과 동일한 이미지를 컨테이너에서 실행하려고 docker run ubuntu 24.04.4 를 터미널에 입력했더니
 ```
 docker: Error response from daemon: failed to create task for container: failed to create shim task: OCI runtime create failed: runc create failed: unable to start container process: error during container init: exec: "24.04.4": executable file not found in $PATH
